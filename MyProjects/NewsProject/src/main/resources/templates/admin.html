@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Login</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"/>
+    <link rel="stylesheet" th:href="@{/css/main.css}"/>
+    	
+
+</head>
+
+<body>
+<nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light ">
+  
+ 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    	<span class="navbar-toggler-icon"></span>
+  	</button>
+  	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+  	
+  	<ul class="navbar-nav mr-auto">
+  	<li class="nav-item active"> </li>
+ 	<li class="nav-item">
+  	<a class="nav-link" href="http://localhost:8080/mainpage"><button type= "button" class="btn btn btn-light text-primary pl-4 pr-4 mr-2 mt-2 mb-2">Home</button></a>
+  
+	</ul>
+ 	
+ 	</div>
+</nav>
+
+  
+
+<main role="main" class="container">
+
+    <div class="starter-template">
+        <form th:action="@{/{login}/createNews(login=${request.login},password=${request.password})}" th:object="${request}" method="post">
+        	<textarea type="text" name="title" th:field="*{title}" rows="4" cols="50" placeholder="Введите заголовок"></textarea>
+        	<textarea name="content" th:field="*{content}" rows="4" cols="50"  placeholder="Напишите новость"></textarea>
+        	<p><input type="submit" name="opyblikovat" value="Опубликовать"/></p>
+        </form>
+        
+        
+    </div>
+
+</main>
+
+<!-- /.container -->
+
+<script type="text/javascript" src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</body>
+</html>
